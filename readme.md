@@ -24,10 +24,10 @@ php artisan vendor:publish --provider="Foris\LaExtension\ServiceProvider"
 
 ## artisan 命令说明
 
-php artisan make:service 创建业务逻辑层服务类
-php artisan make:repository 创建数据存储层服务类
-php artisan make:model 修改laravel官方make:model指令中resource参数，适配repository、service代码分层结构
-php artisan make:controller 扩展laravel官方make:controller指令中resource参数，适配repository、service代码分层结构
+- php artisan make:service 创建业务逻辑层服务类
+- php artisan make:repository 创建数据存储层服务类
+- php artisan make:model 修改laravel官方make:model指令中resource参数，适配repository、service代码分层结构
+- php artisan make:controller 扩展laravel官方make:controller指令中resource参数，适配repository、service代码分层结构
 
 ## 代码目录说明
 
