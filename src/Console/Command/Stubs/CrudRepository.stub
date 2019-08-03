@@ -1,0 +1,35 @@
+<?php
+
+namespace DummyNamespace;
+
+use NamespacedDummyModel;
+use Illuminate\Database\Eloquent\Model;
+use Foris\LaExtension\Repositories\CrudRepository;
+
+class DummyClass extends CrudRepository
+{
+    /**
+     * 数据模型实例
+     *
+     * @var DummyModel
+     */
+    protected $model;
+
+    /**
+     * 获取仓库crud操作对应的model实例
+     *
+     * @return     Model|DummyModel  仓库crud操作对应的model实例
+     */
+    public function model($newInstance = false) : Model
+    {
+        if ($newInstance) {
+            return new DummyModel();
+        }
+
+        if (!$this->model instanceof DummyModel) {
+            $this->model = new DummyModel();
+        }
+
+        return $this->model;
+    }
+}

@@ -1,0 +1,10 @@
+<?php
+
+namespace DummyNamespace;
+
+use Foris\LaExtension\Services\Service;
+
+class DummyClass extends Service
+{
+
+}
