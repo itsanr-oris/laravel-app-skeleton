@@ -44,7 +44,7 @@ php artisan vendor:publish --provider="Foris\LaExtension\ServiceProvider"
 
 1. 执行指令：php artisan make:model Resource -mr
 2. 找到上述指令创建的迁移文件，完善表结构，执行指令：php artisan migrate
-3. 打开路由文件，增加路由：apiResource('resource', 'ResourceController');
+3. 打开路由文件，增加路由：Route::resource('resource', 'ResourceController');
 4. 通过客户端访问相关路由接口，测试基础crud流程是否通畅
 5. 根据业务需求情况，完善相关代码
 
