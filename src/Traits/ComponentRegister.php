@@ -43,17 +43,34 @@ trait ComponentRegister
     {
         $classSegment = explode('\\', static::class);
         $className    = end($classSegment);
-        $nameSegment  =  Arr::except($classSegment, [0, 1, count($classSegment) - 1]);
+        $floderSegment =  Arr::except($classSegment, [0, 1, count($classSegment) - 1]);
 
-        // 驼峰转中折线
-        $snakeClassName    = Str::snake($className, '-');
-        $snakeClassSegment = explode('-', $snakeClassName);
+        $nameSegment= [];
+        foreach ($floderSegment as $floderName) {
+            $nameSegment[] = static::segment($floderName);
+        }
 
-        // 将类名重组进服务名称
-        $nameSegment[] = implode('-', Arr::except($snakeClassSegment, [count($snakeClassSegment) - 1]));
-        $suffixSegment = explode('\\', Str::snake(self::class));
-        $nameSegment[] = end($suffixSegment);
+        $nameSegment[] = static::segment(end($classSegment), true);
 
         return config('app-ext.component.name_prefix') . strtolower(implode('.', $nameSegment));
+    }
+
+    /**
+     * Convert segment name to snake name.
+     *
+     * @param      $name
+     * @param bool $last
+     */
+    protected static function segment($name, $last = false)
+    {
+        if (!$last) {
+            return strtolower(Str::snake($name, '-'));
+        }
+
+        $snakesegment = explode('-', Str::snake($name, '-'));
+        $nameSegment[] = implode('-', Arr::except($snakesegment, [count($snakesegment) - 1]));
+        $nameSegment[] = end($snakesegment);
+
+        return strtolower(implode('.', $nameSegment));
     }
 }
