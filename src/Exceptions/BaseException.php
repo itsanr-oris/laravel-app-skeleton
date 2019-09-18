@@ -34,7 +34,7 @@ class BaseException extends \Exception
      */
     public function __construct(
         string $message = "",
-        int $code = 0,
+        int $code = 1,
         Throwable $previous = null,
         $data = []
     ) {
