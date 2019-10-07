@@ -1,9 +1,0 @@
-<?php
-
-namespace DummyNamespace;
-
-use Foris\LaExtension\Repositories\Repository;
-
-class DummyClass extends Repository
-{
-}
